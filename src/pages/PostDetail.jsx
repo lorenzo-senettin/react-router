@@ -21,11 +21,16 @@ const PostDetail = () => {
       });
   }, [postId]);
 
+  if (error) return <p>Errore: {error}</p>;
+  if (!post) return <p>Caricamento...</p>;
+
   return (
     <div className="post-detail">
+      <button className="back-button" onClick={() => navigate(-1)}>
+        Torna indietro
+      </button>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
-      <button onClick={() => navigate(-1)}>Torna indietro</button>
     </div>
   );
 };

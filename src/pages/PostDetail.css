@@ -1,12 +1,12 @@
 .post-detail {
-  padding: 1rem;
+  padding: 2rem;
   background-color: #333333;
   border-radius: 4px;
 }
 
 .back-button {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 1rem;
   background-color: #ff5722;
   color: #ffffff;
