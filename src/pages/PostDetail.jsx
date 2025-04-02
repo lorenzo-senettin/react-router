@@ -6,7 +6,6 @@ const PostDetail = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)

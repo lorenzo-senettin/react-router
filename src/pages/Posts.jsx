@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+
   return (
-    <div>
+    <div className="posts-container">
       <h1>Posts</h1>
-      <p>Questa è la sezione post</p>
+      <ul className="posts-list">
+        {posts.map((post) => (
+          <li key={post.id} className="post-item">
+            <Link to={`/posts/${post.id}`} className="post-link">
+              {post.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
